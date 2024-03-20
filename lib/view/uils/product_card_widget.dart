@@ -4,11 +4,15 @@ import 'package:flutter/widgets.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
+  Function(ProductModel) setBasket;
+  final bool showAddToCartButton;
   
 
 
   ProductCard({
     required this.product,
+    required this.setBasket,
+    required this.showAddToCartButton
   
     
   });
@@ -79,13 +83,12 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
                      
+                     if (showAddToCartButton)
                      Padding(
                        padding:  EdgeInsets.only(left:60
                        ),
                        child: ElevatedButton.icon(
-                                         onPressed: () {
-                                           
-                                         },
+                                         onPressed: () =>setBasket(product),
                                          icon: Icon(Icons.add_shopping_cart),
                                          label: Text('Add to Cart'),
                                        ),

@@ -51,7 +51,7 @@ class BasketScreen extends ConsumerWidget {
                         ],
                       ),
                       child: ProductCard(
-                        product: product.basketProducts[index],
+                        product: product.basketProducts[index], setBasket: (ProductModel ) {  }, showAddToCartButton: false,
                       
                       ),
                     );
