@@ -8,18 +8,34 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class ProductsListView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final products = ref.watch(parsedProductsProvider);   
-      return ListView.builder(
-              itemCount: products.length,
+    final products = ref.watch(parsedProductsProvider); 
+    final categories = Set<String>.from(products.map((product) => product.category)).toList();  
+      return  DefaultTabController(
+      length: categories.length,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Products'),
+          bottom: TabBar(
+            tabs: categories.map((category) => Tab(text: category)).toList(),
+          ),
+        ),
+        body: TabBarView(
+          children: categories.map((category) {
+            final filteredProducts = products.where((product) => product.category == category).toList();
+            return ListView.builder(
+              itemCount: filteredProducts.length,
               itemBuilder: (context, index) {
-                final product = products[index];             
-                  return ProductCard(
+                final product = filteredProducts[index];
+               return  ProductCard(
                     product: product,
                     
                   );
-                
               },
             );
-  }
-}
+          }).toList(),
+        ),
+      ),
+    );
  
+}
+}
