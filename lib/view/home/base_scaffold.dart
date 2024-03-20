@@ -1,5 +1,6 @@
 
 import 'package:ecom/controller/navigation_riverpod.dart';
+import 'package:ecom/view/cart/basket_screen.dart';
 import 'package:ecom/view/products/products_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,7 +12,7 @@ class BaseScaffold extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final bodies = [
       ProductsListView(),
-      ProductsListView(),
+      BasketScreen(),
     ];
     final indexBottomNavbar = ref.watch(indexBottomNavbarProvider);
     return Scaffold(
