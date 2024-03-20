@@ -23,6 +23,20 @@ import 'package:riverpod/riverpod.dart';
   return [];
 });
 class ProductRiverpod extends ChangeNotifier {
+   List<ProductModel> basketProducts = [];
+
+
+  void addedBasket(ProductModel model) {
+    basketProducts.add(model);
+    
+    notifyListeners();
+  }
+
+  void deleteBasket(ProductModel model) {
+    basketProducts.remove(model);
+    
+    notifyListeners();
+  }
   
   
 }
