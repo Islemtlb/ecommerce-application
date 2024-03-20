@@ -12,6 +12,7 @@ class BasketScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var product = ref.watch(productRiverpod);
+    int totalCartItems = product.basketProducts.length;
      
 
     return Scaffold(
@@ -59,6 +60,27 @@ class BasketScreen extends ConsumerWidget {
                 ),
               ],
             ),
+
+        floatingActionButton: Stack(
+        children: [
+          FloatingActionButton(
+             onPressed: null,
+            child: Icon(Icons.shopping_cart),
+          ),
+          if (totalCartItems > 0) // Conditionally show badge if totalCartItems > 0
+            Positioned(
+              right: 0,
+              child: CircleAvatar(
+                backgroundColor: Colors.red,
+                radius: 10,
+                child: Text(
+                  totalCartItems.toString(),
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+        ],
+      ),
     
     );
   }
