@@ -41,7 +41,7 @@ class BasketScreen extends ConsumerWidget {
                             flex: 1,
                             onPressed: (value) {
                               product.deleteBasket(
-                                  product.basketProducts[index]); // Slide to delete product
+                                  product.basketProducts[index]); // Slide card  right to delete product
                             },
                             backgroundColor: Colors.red,
                             foregroundColor: Colors.white,

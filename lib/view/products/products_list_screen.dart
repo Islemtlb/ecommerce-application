@@ -11,7 +11,8 @@ class ProductsListView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final products = ref.watch(parsedProductsProvider); 
     final categories = Set<String>.from(products.map((product) => product.category)).toList();
-    var read = ref.read(productRiverpod);  
+    var read = ref.read(productRiverpod); 
+    var watch = ref.watch(productRiverpod); 
       return  DefaultTabController(
       length: categories.length,
       child: Scaffold(
@@ -28,10 +29,14 @@ class ProductsListView extends HookConsumerWidget {
               itemCount: filteredProducts.length,
               itemBuilder: (context, index) {
                 final product = filteredProducts[index];
-               return  ProductCard(
-                    product: product, setBasket: (product) => read.addedBasket(product), showAddToCartButton: true,
-                    
+               if (watch.basketProducts.contains(product)) {
+                  return SizedBox.shrink(); // Return empty container
+                } else {
+                  return ProductCard(
+                    product: product,
+                    setBasket: (product) => read.addedBasket(product), showAddToCartButton: true, 
                   );
+                }
               },
             );
           }).toList(),
