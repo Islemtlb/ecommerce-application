@@ -1,0 +1,40 @@
+{
+    "products": [
+      {
+        "category": "Electronics",
+        "name": "Smartphone",
+        "price": 599.99,
+        "description": "A high-end smartphone with the latest features and technology.",
+        "image_path": "assets/images/smartphone.jpg"
+      },
+      {
+        "category": "Electronics",
+        "name": "Laptop",
+        "price": 1299.99,
+        "description": "Powerful laptop designed for productivity and entertainment.",
+        "image_path": "assets/images/laptop.jpg"
+      },
+      {
+        "category": "Clothing",
+        "name": "High Heels",
+        "price": 59.99,
+        "description": "Vintage white comfy high heels",
+        "image_path": "assets/images/heels.jpg"
+      },
+      {
+        "category": "Clothing",
+        "name": "Dress",
+        "price": 39.99,
+        "description": "Classic white dress, suitable for hot summer days.",
+        "image_path": "assets/images/dress.jpg"
+      },
+      {
+        "category": "Books",
+        "name": "Fantasy Novel",
+        "price": 14.99,
+        "description": "Immerse yourself in a world of magic and adventure with this captivating fantasy novel.",
+        "image_path": "assets/images/book.jpg"
+      }
+      
+    ]
+  }
